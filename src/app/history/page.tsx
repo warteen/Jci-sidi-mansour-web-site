@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { prisma } from "@/lib/prisma";
 // Note: If you see Prisma type errors here, please restart your IDE's TS server.
 import HistoryClient from "./HistoryClient";
