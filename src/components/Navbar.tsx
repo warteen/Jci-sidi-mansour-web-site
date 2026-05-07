@@ -167,7 +167,7 @@ export default function Navbar() {
                         top: 0,
                         left: 0,
                         height: "100vh", 
-                        width: "100vw",
+                        width: "100%",
                         background: "rgba(19, 15, 44, 0.98)",
                         backdropFilter: "blur(20px)",
                         WebkitBackdropFilter: "blur(20px)",

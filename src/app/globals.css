@@ -46,6 +46,12 @@
   --transition-fast: all 0.2s ease;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -53,11 +59,19 @@
   scroll-behavior: smooth;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--c-white);
   color: var(--c-gray-800);
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
@@ -346,4 +360,14 @@ section {
 .masonry-item {
   break-inside: avoid;
   margin-bottom: 1.5rem;
+}
+
+/* Footer Responsive Grid */
+.footer-brand {
+  grid-column: span 2;
+}
+@media (max-width: 768px) {
+  .footer-brand {
+    grid-column: span 1;
+  }
 }

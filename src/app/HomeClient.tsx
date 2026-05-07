@@ -57,7 +57,7 @@ export default function HomeClient({ members, projects, gallery, stats, heroImag
     };
 
     return (
-        <main style={{ background: "var(--c-white)", color: "var(--c-gray-900)" }}>
+        <main style={{ background: "var(--c-white)", color: "var(--c-gray-900)", overflowX: "hidden", width: "100%" }}>
             <Navbar />
 
             {/* Scroll Progress Bar */}
@@ -346,15 +346,15 @@ export default function HomeClient({ members, projects, gallery, stats, heroImag
                             <h2 style={{ fontSize: "3.5rem", fontWeight: 800, color: "var(--c-jci-marine)", marginBottom: "2.5rem", letterSpacing: "-0.02em" }}>Connect With Us</h2>
                             <p style={{ color: "var(--c-gray-600)", marginBottom: "4rem", fontSize: "1.1rem", lineHeight: 1.8 }}>Have questions about our initiatives or ready to join the network of young leaders? Reach out and we'll be in touch.</p>
                             <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
-                                <motion.div whileHover={{ x: 10 }} style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
-                                    <div className="hover-glow" style={{ width: "60px", height: "60px", borderRadius: "16px", background: "var(--c-soft-blue)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--c-jci-blue)" }}><Mail size={24} /></div>
-                                    <div><p style={{ fontWeight: 800, color: "var(--c-jci-marine)" }}>Email Us</p><p style={{ color: "var(--c-gray-500)", fontWeight: 500 }}>hello@jcisidimansour.com</p></div>
+                                <motion.div whileHover={{ x: 10 }} style={{ display: "flex", gap: "1.5rem", alignItems: "center", flexWrap: "wrap" }}>
+                                    <div className="hover-glow" style={{ width: "60px", height: "60px", borderRadius: "16px", background: "var(--c-soft-blue)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--c-jci-blue)", flexShrink: 0 }}><Mail size={24} /></div>
+                                    <div style={{ wordBreak: "break-word", flex: 1 }}><p style={{ fontWeight: 800, color: "var(--c-jci-marine)" }}>Email Us</p><p style={{ color: "var(--c-gray-500)", fontWeight: 500 }}>hello@jcisidimansour.com</p></div>
                                 </motion.div>
-                                <motion.div whileHover={{ x: 10 }} style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
-                                    <div className="hover-glow" style={{ width: "60px", height: "60px", borderRadius: "16px", background: "var(--c-soft-blue)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--c-jci-blue)" }}><Phone size={24} /></div>
-                                    <div><p style={{ fontWeight: 800, color: "var(--c-jci-marine)" }}>Call Us</p><p style={{ color: "var(--c-gray-500)", fontWeight: 500 }}>+216 XX XXX XXX</p></div>
+                                <motion.div whileHover={{ x: 10 }} style={{ display: "flex", gap: "1.5rem", alignItems: "center", flexWrap: "wrap" }}>
+                                    <div className="hover-glow" style={{ width: "60px", height: "60px", borderRadius: "16px", background: "var(--c-soft-blue)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--c-jci-blue)", flexShrink: 0 }}><Phone size={24} /></div>
+                                    <div style={{ wordBreak: "break-word", flex: 1 }}><p style={{ fontWeight: 800, color: "var(--c-jci-marine)" }}>Call Us</p><p style={{ color: "var(--c-gray-500)", fontWeight: 500 }}>+216 XX XXX XXX</p></div>
                                 </motion.div>
-                                <div style={{ display: "flex", gap: "1.5rem", marginTop: "1rem" }}>
+                                <div style={{ display: "flex", gap: "1.5rem", marginTop: "1rem", flexWrap: "wrap" }}>
                                     <motion.a 
                                         href="https://www.facebook.com/share/1BB6rExDbn/?mibextid=LQQJ4d" 
                                         target="_blank"
@@ -419,10 +419,10 @@ export default function HomeClient({ members, projects, gallery, stats, heroImag
             </section>
 
             {/* Footer */}
-            <footer style={{ background: "var(--c-jci-marine)", padding: "10rem 0 4rem", color: "white", position: "relative" }}>
+            <footer style={{ background: "var(--c-jci-marine)", padding: "clamp(6rem, 10vw, 10rem) 0 4rem", color: "white", position: "relative" }}>
                 <div className="container">
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "5rem", marginBottom: "6rem" }}>
-                        <div style={{ gridColumn: "span 2" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 250px), 1fr))", gap: "clamp(3rem, 5vw, 5rem)", marginBottom: "6rem" }}>
+                        <div className="footer-brand">
                             <ScrollReveal direction="left">
                                 <img src="/logo-white.svg" alt="JCI Sidi Mansour" style={{ height: "70px", marginBottom: "2.5rem" }} 
                                     onError={(e) => { e.currentTarget.src = "https://placehold.co/300x100/0076BE/FFFFFF?text=JCI+Sidi+Mansour"; }} 
@@ -446,7 +446,7 @@ export default function HomeClient({ members, projects, gallery, stats, heroImag
                         <div>
                             <ScrollReveal direction="up" delay={0.4}>
                                 <h4 style={{ fontSize: "1.25rem", fontWeight: 800, marginBottom: "2.5rem", color: "var(--c-jci-gold)" }}>Join Us</h4>
-                                <div style={{ display: "flex", gap: "1.5rem" }}>
+                                <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
                                     <motion.a 
                                         href="https://www.facebook.com/share/1BB6rExDbn/?mibextid=LQQJ4d" 
                                         target="_blank"
