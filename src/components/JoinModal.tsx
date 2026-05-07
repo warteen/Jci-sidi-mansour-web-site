@@ -74,7 +74,7 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
                             maxWidth: "700px", 
                             background: "white", 
                             borderRadius: "2rem", 
-                            padding: "3rem",
+                            padding: "clamp(1.5rem, 5vw, 3rem)",
                             maxHeight: "90vh",
                             overflowY: "auto",
                             boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)"
@@ -95,7 +95,7 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
                                 </div>
 
                                 <form onSubmit={handleSubmit} style={{ display: "grid", gap: "1.5rem" }}>
-                                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
+                                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 250px), 1fr))", gap: "1.5rem" }}>
                                         <div>
                                             <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 700, marginBottom: "0.5rem", color: "var(--c-jci-blue)", textTransform: "uppercase" }}>Full Name *</label>
                                             <input required name="fullName" value={formData.fullName} onChange={handleChange} className="form-input" placeholder="John Doe" />
@@ -116,7 +116,7 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
                                         <input name="fieldOfStudy" value={formData.fieldOfStudy} onChange={handleChange} className="form-input" placeholder="Software Engineering / Marketing" />
                                     </div>
 
-                                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
+                                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 250px), 1fr))", gap: "1.5rem" }}>
                                         <div>
                                             <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 700, marginBottom: "0.5rem", color: "var(--c-jci-blue)", textTransform: "uppercase" }}>Skills</label>
                                             <input name="skills" value={formData.skills} onChange={handleChange} className="form-input" placeholder="Design, Management, etc." />

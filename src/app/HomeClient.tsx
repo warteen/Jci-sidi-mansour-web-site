@@ -91,7 +91,7 @@ export default function HomeClient({ members, projects, gallery, stats, heroImag
                 />
 
                 <div className="container" style={{ position: "relative", zIndex: 10 }}>
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "4rem", alignItems: "center" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "4rem", alignItems: "center" }}>
                         <motion.div
                             initial="hidden" animate="visible" variants={staggerContainer}
                             style={{ 
@@ -111,7 +111,7 @@ export default function HomeClient({ members, projects, gallery, stats, heroImag
                                         🚀 New Era of Leadership
                                     </span>
                                 </motion.div>
-                                <motion.h1 variants={fadeInUp} style={{ fontSize: "clamp(3.5rem, 9vw, 6.5rem)", fontWeight: 900, lineHeight: 1.05, marginBottom: "2.5rem", letterSpacing: "-0.04em", color: "var(--c-jci-marine)" }}>
+                                <motion.h1 variants={fadeInUp} style={{ fontSize: "clamp(2.5rem, 9vw, 6.5rem)", fontWeight: 900, lineHeight: 1.05, marginBottom: "2.5rem", letterSpacing: "-0.04em", color: "var(--c-jci-marine)" }}>
                                     Impact. <span style={{ color: "var(--c-jci-blue)" }}>Lead.</span> <br />Transform.
                                 </motion.h1>
                                 <motion.p variants={fadeInUp} style={{ fontSize: "1.25rem", lineHeight: 1.6, color: "var(--c-gray-600)", marginBottom: "3.5rem", maxWidth: "600px" }}>
@@ -187,7 +187,7 @@ export default function HomeClient({ members, projects, gallery, stats, heroImag
             {/* Stats Section */}
             <section style={{ padding: "8rem 0", background: "var(--c-gray-50)", borderTop: "1px solid var(--c-gray-100)", position: "relative", zIndex: 10 }}>
                 <div className="container">
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "2.5rem" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 250px), 1fr))", gap: "2.5rem" }}>
                         <AnimatedCounter value={stats.members || 50} label="Active Leaders" suffix="+" />
                         <AnimatedCounter value={stats.projects || 120} label="Impact Projects" suffix="+" />
                         <AnimatedCounter value={stats.years || 15} label="Years of Legacy" prefix="" />
@@ -198,14 +198,14 @@ export default function HomeClient({ members, projects, gallery, stats, heroImag
             {/* About Section - Storytelling Reveal */}
             <section id="about" style={{ background: "var(--c-white)", overflow: "hidden" }}>
                 <div className="container">
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "8rem", alignItems: "center" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))", gap: "clamp(4rem, 8vw, 8rem)", alignItems: "center" }}>
                         <ScrollReveal direction="left">
                             <span style={{ color: "var(--c-jci-blue)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.2em", fontSize: "0.9rem", display: "block", marginBottom: "1.5rem" }}>Mission & Vision</span>
                             <h2 style={{ fontSize: "3.5rem", fontWeight: 800, marginBottom: "2.5rem", color: "var(--c-jci-marine)", letterSpacing: "-0.02em" }}>Who We Are</h2>
                             <p style={{ fontSize: "1.15rem", lineHeight: 1.8, color: "var(--c-gray-600)", marginBottom: "3rem" }}>
                                 JCI Sidi Mansour is a global network of young active citizens (18-40) dedicated to making a positive difference in their local community and the world. 
                             </p>
-                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+                            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: "2rem" }}>
                                 <motion.div whileHover={{ y: -5 }} className="card-premium" style={{ padding: "2rem" }}>
                                     <h4 style={{ color: "var(--c-jci-blue)", marginBottom: "1rem", fontSize: "1.25rem" }}>Vision</h4>
                                     <p style={{ fontSize: "1rem", color: "var(--c-gray-600)" }}>To be the leading global network of young active citizens.</p>
@@ -242,7 +242,7 @@ export default function HomeClient({ members, projects, gallery, stats, heroImag
                         <p style={{ color: "var(--c-gray-500)", marginTop: "1.5rem", maxWidth: "600px", margin: "1.5rem auto 0", fontSize: "1.1rem", textAlign: "center" }}>The visionaries leading our mission this year with passion and excellence.</p>
                     </ScrollReveal>
 
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "3rem" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 280px), 1fr))", gap: "3rem" }}>
                         {members.map((member: any, i: number) => (
                             <ScrollReveal key={member.id} delay={i * 0.1} direction="up">
                                 <motion.div
@@ -285,7 +285,7 @@ export default function HomeClient({ members, projects, gallery, stats, heroImag
                         </ScrollReveal>
                     </div>
 
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(380px, 1fr))", gap: "3rem" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: "3rem" }}>
                         {projects.map((project: any, i: number) => (
                             <ScrollReveal key={project.id} delay={i * 0.1} direction="up">
                                 <motion.div
@@ -340,7 +340,7 @@ export default function HomeClient({ members, projects, gallery, stats, heroImag
             {/* Contact Section */}
             <section id="contact" style={{ background: "var(--c-white)" }}>
                 <div className="container">
-                    <div style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "8rem" }}>
+                    <div style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))", gap: "clamp(4rem, 8vw, 8rem)" }}>
                         <ScrollReveal direction="left">
                             <span style={{ color: "var(--c-jci-blue)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.2em", fontSize: "0.9rem", display: "block", marginBottom: "1.5rem" }}>Get Involved</span>
                             <h2 style={{ fontSize: "3.5rem", fontWeight: 800, color: "var(--c-jci-marine)", marginBottom: "2.5rem", letterSpacing: "-0.02em" }}>Connect With Us</h2>
@@ -389,7 +389,7 @@ export default function HomeClient({ members, projects, gallery, stats, heroImag
                         <ScrollReveal direction="right" delay={0.2}>
                             <motion.div
                                 whileHover={{ scale: 1.01 }}
-                                className="card-premium" style={{ padding: "4rem" }}
+                                className="card-premium" style={{ padding: "clamp(2rem, 5vw, 4rem)" }}
                             >
                                 <form style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
                                     <div>

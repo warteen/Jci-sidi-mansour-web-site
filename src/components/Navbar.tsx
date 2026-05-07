@@ -28,6 +28,7 @@ export default function Navbar() {
     ];
 
     return (
+        <>
         <nav
             className={`transition-all duration-500 navbar-scrolled ${scrolled ? "shadow-xl" : ""}`}
             style={{
@@ -118,35 +119,6 @@ export default function Navbar() {
                     }
                 </div>
             </div>
-
-            {/* Mobile Menu Overlay */}
-            <AnimatePresence>
-                {mobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="fixed inset-0 z-[99] navbar-scrolled flex flex-col items-center justify-center gap-8 pt-20"
-                        style={{ height: "100vh", width: "100vw" }}
-                    >
-                        {navLinks.map((link) => (
-                            <Link key={link.name} href={link.href} onClick={() => setMobileMenuOpen(false)}>
-                                <span style={{ fontSize: "1.5rem", fontWeight: 700, color: "#fff" }}>
-                                    {link.name}
-                                </span>
-                            </Link>
-                        ))}
-                        <button
-                            className="btn btn-primary"
-                            style={{ marginTop: "1rem" }}
-                            onClick={() => { setMobileMenuOpen(false); window.location.href = "#contact"; }}
-                        >
-                            Join Us Now
-                        </button>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-
             <style jsx>{`
                 .desktop-nav {
                     display: flex;
@@ -180,5 +152,59 @@ export default function Navbar() {
                 }
             `}</style>
         </nav>
+
+        {/* Mobile Menu Overlay */}
+        <AnimatePresence>
+            {mobileMenuOpen && (
+                <motion.div
+                    initial={{ opacity: 0, y: "-100%" }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: "-100%" }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className="flex flex-col items-center justify-center gap-8"
+                    style={{ 
+                        position: "fixed",
+                        top: 0,
+                        left: 0,
+                        height: "100vh", 
+                        width: "100vw",
+                        background: "rgba(19, 15, 44, 0.98)",
+                        backdropFilter: "blur(20px)",
+                        WebkitBackdropFilter: "blur(20px)",
+                        zIndex: 90, /* Behind navbar so navbar is always visible */
+                        paddingTop: "80px" /* To offset the navbar */
+                    }}
+                >
+                    {navLinks.map((link, i) => (
+                        <motion.div
+                            key={link.name}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1 * i + 0.2 }}
+                        >
+                            <Link href={link.href} onClick={() => setMobileMenuOpen(false)}>
+                                <span style={{ fontSize: "1.75rem", fontWeight: 700, color: "#fff", letterSpacing: "1px" }}>
+                                    {link.name}
+                                </span>
+                            </Link>
+                        </motion.div>
+                    ))}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.8 }}
+                    >
+                        <button
+                            className="btn btn-primary"
+                            style={{ marginTop: "1rem", fontSize: "1.1rem", padding: "1rem 2.5rem" }}
+                            onClick={() => { setMobileMenuOpen(false); window.location.href = "#contact"; }}
+                        >
+                            Join Us Now
+                        </button>
+                    </motion.div>
+                </motion.div>
+            )}
+        </AnimatePresence>
+        </>
     );
 }
