@@ -71,8 +71,8 @@ export default function ApplicationsPage() {
     };
 
     return (
-        <div style={{ padding: "2rem" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "2.5rem" }}>
+        <div style={{ padding: "clamp(1rem, 5vw, 2rem)" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "1.5rem", marginBottom: "2.5rem" }}>
                 <div>
                     <h1 style={{ fontSize: "2rem", fontWeight: 800, color: "var(--c-jci-marine)", marginBottom: "0.5rem" }}>Membership Applications</h1>
                     <p style={{ color: "var(--c-gray-500)" }}>Manage new candidates for JCI Sidi Mansour.</p>
@@ -83,7 +83,7 @@ export default function ApplicationsPage() {
                         <input 
                             type="text" 
                             placeholder="Search applications..." 
-                            style={{ padding: "0.75rem 1rem 0.75rem 2.5rem", borderRadius: "0.75rem", border: "1px solid var(--c-gray-200)", width: "300px", outline: "none" }}
+                            style={{ padding: "0.75rem 1rem 0.75rem 2.5rem", borderRadius: "0.75rem", border: "1px solid var(--c-gray-200)", width: "100%", minWidth: "250px", maxWidth: "300px", outline: "none" }}
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
@@ -92,7 +92,7 @@ export default function ApplicationsPage() {
             </div>
 
             {/* Filters */}
-            <div style={{ display: "flex", gap: "0.75rem", marginBottom: "2rem" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", marginBottom: "2rem" }}>
                 {statuses.map(s => (
                     <button
                         key={s}
@@ -116,8 +116,8 @@ export default function ApplicationsPage() {
             </div>
 
             {/* Table */}
-            <div style={{ background: "white", borderRadius: "1.5rem", border: "1px solid var(--c-gray-100)", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.02)" }}>
-                <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left" }}>
+            <div style={{ background: "white", borderRadius: "1.5rem", border: "1px solid var(--c-gray-100)", overflowX: "auto", boxShadow: "0 4px 20px rgba(0,0,0,0.02)", width: "100%" }}>
+                <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", minWidth: "700px" }}>
                     <thead>
                         <tr style={{ background: "var(--c-gray-50)", borderBottom: "1px solid var(--c-gray-100)" }}>
                             <th style={{ padding: "1.25rem 1.5rem", color: "var(--c-gray-500)", fontWeight: 600, fontSize: "0.85rem", textTransform: "uppercase" }}>Candidate</th>
@@ -185,7 +185,7 @@ export default function ApplicationsPage() {
 
             {/* Application Detail Modal */}
             {selectedApp && (
-                <div style={{ position: "fixed", inset: 0, zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem" }}>
+                <div style={{ position: "fixed", inset: 0, zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem" }}>
                     <div 
                         onClick={() => setSelectedApp(null)}
                         style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", backdropFilter: "blur(4px)" }}
@@ -212,8 +212,8 @@ export default function ApplicationsPage() {
                         </div>
 
                         {/* Content */}
-                        <div style={{ padding: "2rem", overflowY: "auto", display: "grid", gridTemplateColumns: "1fr 300px", gap: "3rem" }}>
-                            <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+                        <div style={{ padding: "clamp(1rem, 5vw, 2rem)", overflowY: "auto", display: "flex", flexWrap: "wrap", gap: "2rem" }}>
+                            <div style={{ display: "flex", flexDirection: "column", gap: "2rem", flex: "1 1 300px" }}>
                                 <section>
                                     <h3 style={{ fontSize: "0.8rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--c-gray-400)", marginBottom: "1rem" }}>Motivation & Bio</h3>
                                     <p style={{ lineHeight: 1.6, color: "var(--c-gray-700)", whiteSpace: "pre-wrap" }}>
@@ -233,7 +233,7 @@ export default function ApplicationsPage() {
                                 </div>
                             </div>
 
-                            <aside style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+                            <aside style={{ display: "flex", flexDirection: "column", gap: "2rem", flex: "1 1 250px" }}>
                                 <section style={{ background: "var(--c-gray-50)", padding: "1.5rem", borderRadius: "1.25rem" }}>
                                     <h3 style={{ fontSize: "0.8rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--c-gray-400)", marginBottom: "1.5rem" }}>Contact Details</h3>
                                     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -284,18 +284,17 @@ export default function ApplicationsPage() {
                             </aside>
                         </div>
 
-                        {/* Footer */}
-                        <div style={{ padding: "1.5rem 2rem", background: "var(--c-gray-50)", borderTop: "1px solid var(--c-gray-100)", display: "flex", justifyContent: "flex-end", gap: "1rem" }}>
+                        <div style={{ padding: "1.5rem", background: "var(--c-gray-50)", borderTop: "1px solid var(--c-gray-100)", display: "flex", flexWrap: "wrap", justifyContent: "flex-end", gap: "1rem" }}>
                             <button 
                                 onClick={() => deleteApplication(selectedApp.id)}
-                                style={{ padding: "0.75rem 1.5rem", borderRadius: "var(--radius-md)", border: "1px solid #FED7D7", background: "white", color: "#C53030", fontWeight: 600, fontSize: "0.9rem", cursor: "pointer" }}
+                                style={{ padding: "0.75rem 1.5rem", borderRadius: "var(--radius-md)", border: "1px solid #FED7D7", background: "white", color: "#C53030", fontWeight: 600, fontSize: "0.9rem", cursor: "pointer", flex: "1 1 auto", textAlign: "center" }}
                             >
                                 Delete Application
                             </button>
                             <button 
                                 onClick={() => setSelectedApp(null)}
                                 className="btn btn-primary"
-                                style={{ padding: "0.75rem 2rem", height: "auto", fontSize: "0.9rem" }}
+                                style={{ padding: "0.75rem 2rem", height: "auto", fontSize: "0.9rem", flex: "1 1 auto", textAlign: "center" }}
                             >
                                 Done
                             </button>

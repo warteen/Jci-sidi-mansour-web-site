@@ -13,7 +13,7 @@ export default async function Dashboard() {
         <div>
             <h1 style={{ fontSize: "2rem", marginBottom: "2rem" }}>Dashboard Overview</h1>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "1.5rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 250px), 1fr))", gap: "1.5rem" }}>
                 <div className="card" style={{ padding: "1.5rem" }}>
                     <h3 style={{ color: "var(--c-gray-500)", marginBottom: "0.5rem", fontSize: "1rem" }}>Total Members</h3>
                     <p style={{ fontSize: "2.5rem", fontWeight: "bold", color: "var(--c-blue-600)" }}>{memberCount}</p>
@@ -34,7 +34,7 @@ export default async function Dashboard() {
 
             <div className="card" style={{ padding: "1.5rem", marginTop: "2rem" }}>
                 <h2 style={{ fontSize: "1.25rem", marginBottom: "1rem" }}>Quick Actions</h2>
-                <div style={{ display: "flex", gap: "1rem" }}>
+                <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
                     <a href="/admin/members" className="btn btn-primary">Manage Members</a>
                     <a href="/admin/projects" className="btn btn-outline">Add Project</a>
                 </div>

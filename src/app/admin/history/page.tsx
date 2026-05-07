@@ -98,8 +98,8 @@ export default function HistoryAdminPage() {
     };
 
     return (
-        <div style={{ padding: "2rem" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem" }}>
+        <div style={{ padding: "clamp(1rem, 5vw, 2rem)" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "1.5rem", marginBottom: "2rem" }}>
                 <div>
                     <h1 style={{ fontSize: "2rem", fontWeight: 800, color: "var(--c-jci-marine)" }}>Manage History Timeline</h1>
                     <p style={{ color: "var(--c-gray-500)", marginTop: "0.25rem" }}>Add, edit or remove milestones.</p>
@@ -110,7 +110,7 @@ export default function HistoryAdminPage() {
             </div>
 
             <div className="card" style={{ overflowX: "auto" }}>
-                <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "600px" }}>
                     <thead>
                         <tr style={{ background: "var(--c-gray-50)", borderBottom: "1px solid var(--c-gray-200)", textAlign: "left" }}>
                             <th style={{ padding: "1rem" }}>Year</th>
@@ -149,9 +149,9 @@ export default function HistoryAdminPage() {
 
             {/* Modal */}
             {showModal && (
-                <div style={{ position: "fixed", inset: 0, zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem" }}>
+                <div style={{ position: "fixed", inset: 0, zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem" }}>
                     <div onClick={() => setShowModal(false)} style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.45)", backdropFilter: "blur(4px)" }} />
-                    <div style={{ position: "relative", background: "white", borderRadius: "1.5rem", padding: "2rem", width: "100%", maxWidth: "520px", boxShadow: "0 25px 60px rgba(0,0,0,0.15)" }}>
+                    <div style={{ position: "relative", background: "white", borderRadius: "1.5rem", padding: "clamp(1.5rem, 5vw, 2rem)", width: "100%", maxWidth: "520px", boxShadow: "0 25px 60px rgba(0,0,0,0.15)", maxHeight: "90vh", overflowY: "auto" }}>
                         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "1.5rem" }}>
                             <h2 style={{ fontWeight: 800, fontSize: "1.25rem", color: "var(--c-jci-marine)" }}>{editing ? "Edit Entry" : "Add New Entry"}</h2>
                             <button onClick={() => setShowModal(false)} style={{ background: "none", border: "none", cursor: "pointer", color: "var(--c-gray-400)" }}><X size={22} /></button>
