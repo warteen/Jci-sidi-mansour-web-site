@@ -115,10 +115,13 @@ export default function AdminSidebar() {
                     ))}
                 </nav>
 
-                <div style={{ marginTop: "auto", paddingTop: "2rem" }}>
+                <div style={{ marginTop: "auto", paddingTop: "2rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                     <Link href="/" className="admin-nav-item" style={{ color: "var(--c-gray-500)", display: "flex", alignItems: "center", gap: "0.75rem", padding: "0.75rem 1rem" }}>
-                        <LogOut size={20} /> Back to Site
+                        Back to Site
                     </Link>
+                    <a href="/api/auth/logout" className="admin-nav-item" style={{ color: "#dc2626", display: "flex", alignItems: "center", gap: "0.75rem", padding: "0.75rem 1rem", fontWeight: 600 }}>
+                        <LogOut size={20} /> Logout
+                    </a>
                 </div>
             </aside>
 
